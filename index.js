@@ -2,7 +2,9 @@ const inquirer = require('inquirer');
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
+const generateTeam = require('./src/page-template');
 var team = [];
+var finished = 0;
 //const manager = new Manager('Ted', 1234, '275@gmail.com', '100A');
 /*
 console.log(manager.getName());
@@ -54,20 +56,54 @@ const buildTeam = () => {
 
         `);
 
-    inquirer.prompt([
+    return inquirer.prompt([
         {
             type: 'list',
             name: 'engineerORIntern',
             message: 'Choose staff member type.',
-            choices: ["Engineer", "Intern"]
+            choices: ['Engineer', 'Intern']
+        },
+        {
+            type: 'input',
+            name: 'staffName',
+            message: 'Enter the name of the staff member.'
+        },
+        {
+            type: 'input',
+            name: 'staffID',
+            message: 'Enter the staff member employee ID.'
+        },
+        {
+            type: 'input',
+            name: 'staffEmail',
+            message: 'Enter the email for the staff member.'
+        },
+        {
+            type: 'input',
+            name: 'githubORSchool',
+            message: 'Enter the github username for Engineer or school name for Intern.'
+        },
+        {
+            type: 'confirm',
+            name: 'confirmAddMore',
+            message: 'Would you like to add another staff member?',
+            default: false
         }
     ])
-        .then(choice => {
-            if (choice.engineerORIntern === "Engineer") {
-                addStaff("Engineer", "Enter the github username for the staff member (engineer).");
+        .then(staffData => {
+            if (staffData.engineerORIntern === 'Engineer') {
+                createEngineer(staffData);
+            }
+            else if (staffData.engineerORIntern === 'Intern') {
+                createIntern(staffData);
+            }
+
+            if (staffData.confirmAddMore) {
+                return buildTeam();
+
             }
             else {
-                addStaff("Intern", "Enter the school for the staff member (intern)")
+                return staffData;
             }
         });
 };
@@ -101,6 +137,7 @@ const addStaff = (staffType, theMsg) => {
             default: false
         }
     ])
+
         .then(staffData => {
             if (staffType === "Engineer") {
                 createEngineer(staffData);
@@ -113,7 +150,8 @@ const addStaff = (staffType, theMsg) => {
                 buildTeam();
             }
             else {
-                for (i=0; i < team.length; i++) {
+                finished = 1;
+                for (i = 0; i < team.length; i++) {
                     console.log(`\r\n`);
                     console.log(team[i].getRole());
                     console.log(team[i].getName());
@@ -128,11 +166,16 @@ const addStaff = (staffType, theMsg) => {
                     else {
                         console.log(team[i].schoolName);
                     }
-                
+
                 }
-                return;
+
             }
         })
+    /*
+    .then(generateTeam(team))
+    .then(htmlPage => {
+        console.log(htmlPage);
+    }) */
 
 };
 
@@ -168,8 +211,17 @@ const createManager = managerData => {
 
 promptForManager()
     .then(managerData => {
-        createManager(managerData);
+        return createManager(managerData);
     })
-    .then(buildTeam)
-    
+    .then(buildStaff => {
+        return buildTeam();
+    })
+    .then(staffData => {
+       return generateTeam(team);
+    })
+    .then(htmlPage => {
+        console.log(htmlPage);
+    });
+
+
 
