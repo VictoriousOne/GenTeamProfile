@@ -3,6 +3,7 @@ const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 const generateTeam = require('./src/page-template');
+const { writeFile, copyFile } = require('./utils/generate-site');
 var team = [];
 var finished = 0;
 //const manager = new Manager('Ted', 1234, '275@gmail.com', '100A');
@@ -221,7 +222,18 @@ promptForManager()
     })
     .then(htmlPage => {
         console.log(htmlPage);
-    });
+        return writeFile(htmlPage);
+    })
+    .then(writeFileResponse => {
+        console.log("\r\n" + "WriteFile response: " + writeFileResponse.message);
+        return copyFile();
+      })
+      .then(copyFileResponse => {
+        console.log("\r\n" + "CopyFile response: " + copyFileResponse.message);
+      })
+      .catch(err => {
+        console.log(err);
+      });
 
 
 

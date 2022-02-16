@@ -9,7 +9,7 @@ const generateTeam = theTeam => {
         <div class="card" >
             <div class="card-header">
                 <p>${theTeam[i].getName()}</p>
-                <p>${theTeam[i].getRole()}<p/p>
+                <p><i class="fa-solid fa-mug-hot"></i>${theTeam[i].getRole()}<p/p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${theTeam[i].getId()}</li>
@@ -23,7 +23,7 @@ const generateTeam = theTeam => {
         <div class="card" >
             <div class="card-header">
                 <p>${theTeam[i].getName()}</p>
-                <p>${theTeam[i].getRole()}<p/p>
+                <p><i class="fa-solid fa-glasses"></i>${theTeam[i].getRole()}<p/p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${theTeam[i].getId()}</li>
@@ -37,7 +37,7 @@ const generateTeam = theTeam => {
         <div class="card" >
             <div class="card-header">
                 <p>${theTeam[i].getName()}</p>
-                <p>${theTeam[i].getRole()}<p/p>
+                <p><i class="fa-solid fa-user-graduate"></i>${theTeam[i].getRole()}<p/p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${theTeam[i].getId()}</li>
@@ -58,7 +58,7 @@ const generateTeam = theTeam => {
 const genTeam = team => {
     //console.log("Logging team " + team);
     return `
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -66,6 +66,7 @@ const genTeam = team => {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
 
 </head>
