@@ -5,14 +5,6 @@ const Intern = require('./lib/Intern.js');
 const generateTeam = require('./src/page-template');
 const { writeFile, copyFile } = require('./utils/generate-site');
 var team = [];
-var finished = 0;
-//const manager = new Manager('Ted', 1234, '275@gmail.com', '100A');
-/*
-console.log(manager.getName());
-console.log(manager.getId());
-console.log(manager.getEmail());
-console.log(manager.getRole());
-console.log(manager.offcNum); */
 
 const promptForManager = () => {
 
@@ -51,9 +43,9 @@ const buildTeam = () => {
 
     console.log(`
 
-    =================
-    Add Staff Member
-    =================
+============================
+Add Staff Member Information
+============================
 
         `);
 
@@ -109,76 +101,7 @@ const buildTeam = () => {
         });
 };
 
-const addStaff = (staffType, theMsg) => {
-    inquirer.prompt([
-        {
-            type: 'input',
-            name: 'staffName',
-            message: 'Enter the name of the staff member.'
-        },
-        {
-            type: 'input',
-            name: 'staffID',
-            message: 'Enter the staff member employee ID.'
-        },
-        {
-            type: 'input',
-            name: 'staffEmail',
-            message: 'Enter the email for the staff member.'
-        },
-        {
-            type: 'input',
-            name: 'githubORSchool',
-            message: theMsg
-        },
-        {
-            type: 'confirm',
-            name: 'confirmAddMore',
-            message: 'Would you like to add another staff member?',
-            default: false
-        }
-    ])
 
-        .then(staffData => {
-            if (staffType === "Engineer") {
-                createEngineer(staffData);
-            }
-            else {
-                createIntern(staffData);
-            }
-
-            if (staffData.confirmAddMore) {
-                buildTeam();
-            }
-            else {
-                finished = 1;
-                for (i = 0; i < team.length; i++) {
-                    console.log(`\r\n`);
-                    console.log(team[i].getRole());
-                    console.log(team[i].getName());
-                    console.log(team[i].getId());
-                    console.log(team[i].getEmail());
-                    if (team[i].getRole() === "Manager") {
-                        console.log(team[i].offcNum);
-                    }
-                    else if (team[i].getRole() === "Engineer") {
-                        console.log(team[i].githubUserName);
-                    }
-                    else {
-                        console.log(team[i].schoolName);
-                    }
-
-                }
-
-            }
-        })
-    /*
-    .then(generateTeam(team))
-    .then(htmlPage => {
-        console.log(htmlPage);
-    }) */
-
-};
 
 const createEngineer = staffData => {
     const engineer = new Engineer(staffData.staffName, staffData.staffID,
@@ -202,12 +125,7 @@ const createManager = managerData => {
         managerData.managerEmail, managerData.managerOffc);
 
     team.push(manager);
-    /*
-    console.log(manager.getName());
-    console.log(manager.getId());
-    console.log(manager.getEmail());
-    console.log(manager.getRole());
-    console.log(manager.offcNum);*/
+    
 }
 
 promptForManager()
