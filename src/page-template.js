@@ -9,7 +9,7 @@ const generateTeam = theTeam => {
         <div class="card" >
             <div class="card-header">
                 <p>${theTeam[i].getName()}</p>
-                <p><i class="fa-solid fa-mug-hot"></i>${theTeam[i].getRole()}<p/p>
+                <p><i class="fas fa-mug-hot"></i>${theTeam[i].getRole()}<p/p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${theTeam[i].getId()}</li>
@@ -23,7 +23,7 @@ const generateTeam = theTeam => {
         <div class="card" >
             <div class="card-header">
                 <p>${theTeam[i].getName()}</p>
-                <p><i class="fa-solid fa-glasses"></i>${theTeam[i].getRole()}<p/p>
+                <p><i class="fas fa-glasses"></i>${theTeam[i].getRole()}<p/p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${theTeam[i].getId()}</li>
@@ -37,7 +37,7 @@ const generateTeam = theTeam => {
         <div class="card" >
             <div class="card-header">
                 <p>${theTeam[i].getName()}</p>
-                <p><i class="fa-solid fa-user-graduate"></i>${theTeam[i].getRole()}<p/p>
+                <p><i class="fas fa-user-graduate"></i>${theTeam[i].getRole()}<p/p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${theTeam[i].getId()}</li>
@@ -65,8 +65,8 @@ const genTeam = team => {
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
     <link rel="stylesheet" href="style.css" />
 
 </head>
@@ -79,7 +79,7 @@ const genTeam = team => {
     <div class="flex-row justify-center">
     ${generateTeam(team)}
        
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/c502137733.js"></script>
 </body>
 
 </html>
