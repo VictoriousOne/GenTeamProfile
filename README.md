@@ -18,7 +18,7 @@ This is a commandline application that allows the user to create a web page with
 
 ## Usage
 At the Bash command line, enter node index.js. A demo of the app can be
-seen here: https://watch.screencastify.com/v/a1pUyYVVs28usZxrIbTQ
+seen here: https://watch.screencastify.com/v/gzmhkp5bn8RTYtsHeFJB
 
 ## Contributions
 Conributions are always welcomed.
