@@ -10,6 +10,7 @@ This is a commandline application that allows the user to create a web page with
 * [Usage](#usage)
 * [Contributions](#contributions)
 * [License](#license)
+* [Snapshot](#Snapshot)
 * [Tests](#tests)
 * [Questions](#questions)
 
@@ -25,6 +26,10 @@ Conributions are always welcomed.
 
 ## License
 The product is licensed under GNU
+
+## Snapshot
+
+![TeamProfile](https://user-images.githubusercontent.com/71474934/155861946-337f6041-0e07-4aa1-94da-39375f4b24ff.jpg)
 
 ## Tests
 The classes in the app can be tested by typing "npm rn test" at the commandline.
